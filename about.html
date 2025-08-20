@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en" class="">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>About Me | Mohammed Khairy</title>
+    <meta name="description" content="Learn more about Mohammed Khairy, his passion for design and technology, and the skills he brings to every project." />
+    <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans:wght@400;500;700;900" />
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <style>
+      body { font-family: "Noto Sans", sans-serif; overflow-x: hidden; }
+      .bg-main { background-color: #fbfaf9; } .dark .bg-main { background-color: #181411; }
+      .bg-subtle { background-color: #f0ecea; } .dark .bg-subtle { background-color: #26221f; }
+      .border-subtle { border-color: #f0ecea; } .dark .border-subtle { border-color: #3f3a36; }
+      .text-main { color: #181411; } .dark .text-main { color: #fbfaf9; }
+      .text-secondary { color: #866e5f; } .dark .text-secondary { color: #a8a29e; }
+      .btn-primary { background-color: #ecdacf; color: #181411; } .dark .btn-primary { background-color: #57534e; color: #fbfaf9; }
+      .btn-primary:hover { background-color: #e3d1c0; } .dark .btn-primary:hover { background-color: #6a6661; }
+      html[lang="ar"] { direction: rtl; }
+      .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
+      .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+    </style>
+  </head>
+  <body class="bg-main text-main transition-colors duration-300">
+    <div class="relative flex min-h-screen flex-col">
+      <!-- Header -->
+      <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-subtle bg-main/80 px-4 py-3 backdrop-blur-sm md:px-10">
+        <a href="index.html" class="flex items-center gap-4">
+            <div class="size-4 text-main"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path></svg></div>
+            <h2 class="text-main text-lg font-bold" data-lang-en="Mohammed Khairy" data-lang-ar="محمد خيري">Mohammed Khairy</h2>
+        </a>
+        <div class="flex items-center gap-4">
+          <nav class="hidden items-center gap-6 md:flex">
+            <a class="text-main text-sm font-medium hover:text-secondary" href="projects.html" data-lang-en="Projects" data-lang-ar="المشاريع">Projects</a>
+            <a class="text-main text-sm font-medium hover:text-secondary" href="about.html" data-lang-en="About" data-lang-ar="من أنا">About</a>
+            <a class="text-main text-sm font-medium hover:text-secondary" href="contact.html" data-lang-en="Contact" data-lang-ar="التواصل">Contact</a>
+          </nav>
+          <div class="flex items-center gap-3">
+              <button id="languageToggle" class="bg-subtle text-main h-9 w-16 text-sm font-bold rounded-full">العربية</button>
+              <button id="darkModeToggle" class="bg-subtle flex h-9 w-9 items-center justify-center rounded-full">
+                  <svg id="sunIcon" class="text-main" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM232,128A8,8,0,0,1,224,136h-8a8,8,0,0,1,0-16h8A8,8,0,0,1,232,128ZM40,120H32a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16ZM195.92,68.08a8,8,0,0,0,5.65-2.34l5.66-5.66a8,8,0,0,0-11.32-11.32L190.26,54.4a8,8,0,0,0,5.66,13.68ZM60.08,195.92l-5.66,5.66a8,8,0,0,0,11.32,11.32l5.66-5.66a8,8,0,0,0-11.32-11.32ZM201.58,190.26a8,8,0,0,0-11.32,11.32l5.66,5.66a8,8,0,0,0,11.32-11.32ZM54.4,60.08a8,8,0,0,0,11.32-11.32L60.08,43.1,48.76,54.42A8,8,0,0,0,54.4,60.08ZM128,232a8,8,0,0,1-8-8v-8a8,8,0,0,1,16,0v8A8,8,0,0,1,128,232ZM128,40a8,8,0,0,0-8-8V24a8,8,0,0,0,16,0v8A8,8,0,0,0,128,40Z"></path></svg>
+                  <svg id="moonIcon" class="text-main hidden" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M216.7,152.24a8,8,0,0,1-8.55,1.24,80.11,80.11,0,0,0-91,91,8,8,0,0,1,9.79,12.44,96.12,96.12,0,1,0-93.44-93.44,8,8,0,0,1,12.44,9.79,80.11,80.11,0,0,0,91-91,8,8,0,0,1,1.24-8.55,8,8,0,0,1,14.23,5.15A96.06,96.06,0,0,1,216.7,152.24Z"></path></svg>
+              </button>
+          </div>
+        </div>
+      </header>
+
+      <!-- Main Content -->
+      <main class="flex-1 py-20 px-4 md:px-10">
+        <div class="mx-auto max-w-5xl">
+            <div class="text-center animate-on-scroll">
+              <h1 class="text-4xl font-black text-main" data-lang-en="About Me" data-lang-ar="عني">About Me</h1>
+              <p class="mt-4 max-w-3xl mx-auto text-secondary" data-lang-en="A little bit about my journey, my passion, and my skills." data-lang-ar="القليل عن رحلتي، شغفي، ومهاراتي.">A little bit about my journey, my passion, and my skills.</p>
+            </div>
+            
+            <div class="mt-16 grid gap-12 md:grid-cols-5 items-center">
+              <div class="md:col-span-2 animate-on-scroll">
+                <img src="https://www.dropbox.com/scl/fi/t08b19c7okvacq58ju2ga/IMG-20250315-WA0009.jpg?rlkey=l1f0tvvhjdgvy2733g2qnqzct&dl=1" alt="Mohammed Khairy" class="rounded-lg shadow-xl w-full" />
+              </div>
+              <div class="md:col-span-3 animate-on-scroll" style="--delay: 0.2s;">
+                <h2 class="text-2xl font-bold text-main" data-lang-en="My Story" data-lang-ar="قصتي">My Story</h2>
+                <p class="mt-4 text-secondary leading-relaxed" data-lang-en="I am a passionate designer and developer who believes that great work comes from the intersection of creativity and technology. With a keen eye for detail and a commitment to quality, I strive to create digital products that are not only beautiful but also solve real-world problems and provide an exceptional user experience." data-lang-ar="أنا مصمم ومطور شغوف أؤمن بأن العمل الرائع يأتي من تقاطع الإبداع والتكنولوجيا. بعين ثاقبة للتفاصيل والتزام بالجودة، أسعى لإنشاء منتجات رقمية ليست جميلة فحسب، بل تحل أيضًا مشكلات حقيقية وتقدم تجربة مستخدم استثنائية.">I am a passionate designer and developer who believes that great work comes from the intersection of creativity and technology. With a keen eye for detail and a commitment to quality, I strive to create digital products that are not only beautiful but also solve real-world problems and provide an exceptional user experience.</p>
+                
+                <h3 class="mt-8 text-xl font-bold text-main" data-lang-en="My Skills" data-lang-ar="مهاراتي">My Skills</h3>
+                <div class="mt-4 flex flex-wrap gap-3">
+                    <span class="rounded-full bg-subtle px-4 py-2 text-sm font-medium text-main">HTML & CSS</span>
+                    <span class="rounded-full bg-subtle px-4 py-2 text-sm font-medium text-main">JavaScript</span>
+                    <span class="rounded-full bg-subtle px-4 py-2 text-sm font-medium text-main">Figma</span>
+                    <span class="rounded-full bg-subtle px-4 py-2 text-sm font-medium text-main">Adobe Photoshop</span>
+                    <span class="rounded-full bg-subtle px-4 py-2 text-sm font-medium text-main">Webflow</span>
+                    <span class="rounded-full bg-subtle px-4 py-2 text-sm font-medium text-main">UI/UX Principles</span>
+                </div>
+              </div>
+            </div>
+        </div>
+      </main>
+
+      <!-- Footer -->
+      <footer id="contact" class="bg-subtle border-t border-subtle py-16 px-4 md:px-10">
+        <div class="mx-auto max-w-5xl text-center">
+            <h2 class="text-2xl font-bold text-main" data-lang-en="Let's Build Something Great" data-lang-ar="لنبدأ مشروعاً رائعاً معاً">Let's Build Something Great</h2>
+            <p class="mt-2 text-secondary" data-lang-en="Ready to start your next project? Get in touch." data-lang-ar="هل أنت مستعد لبدء مشروعك القادم؟ تواصل معي.">Ready to start your next project? Get in touch.</p>
+            <a href="mailto:mohamedkhairy0887@gmail.com" class="btn-primary mt-6 inline-block rounded-full px-8 py-3 font-bold transition">mohamedkhairy0887@gmail.com</a>
+            <div class="mt-12 flex flex-col items-center gap-8 border-t border-gray-300 dark:border-gray-700 pt-8 sm:flex-row sm:justify-between">
+                 <p class="text-sm text-secondary" data-lang-en="© 2024 Mohammed Khairy. All rights reserved." data-lang-ar="© 2024 محمد خيري. جميع الحقوق محفوظة.">© 2024 Mohammed Khairy. All rights reserved.</p>
+                 <div class="flex justify-center gap-5">
+                    <a href="https://www.facebook.com/profile.php?id=61578307505627" target="_blank" title="Facebook" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H132V160H108V128h24V104a40,40,0,0,1,40-40h28v32H176a8,8,0,0,0-8,8v16h32l-4,32H168v72h48a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Z"></path></svg></a>
+                    <a href="https://www.instagram.com/mohamed_khairy_5i/" target="_blank" title="Instagram" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg></a>
+                    <a href="https://wa.me/201060487315" target="_blank" title="WhatsApp" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,24,128c0,19.38,5.4,37.33,14.51,52.12L25.29,228.71a8,8,0,0,0,9.42,9.42l48.59-13.22A103.37,103.37,0,0,0,128,232a104,104,0,0,0,0-208Zm0,192a87.87,87.87,0,0,1-44.24-12.27l-3.13-1.87-33,9-9-33,1.87-3.13A88,88,0,1,1,128,216ZM169.87,146c-2.32-1.16-13.75-6.78-15.89-7.56s-3.68-1.16-5.24.83-6,7.56-7.38,9.12-2.75,1.75-5.07.58-9.5-3.5-18.09-11.16-13.68-13.22-15.24-16.14-1.56-2.5-2.14-3.08,0-2.32,1-3.29,1.75-1.75,2.5-2.75a40.52,40.52,0,0,0,1.75-3.08,3,3,0,0,0-.29-2.92c-.58-.58-5.24-12.62-7.18-17.28s-3.89-4-5.24-4-2.5-.09-3.68-.09-3.08.58-4.64,2.92-6,5.85-6,14.28,6.14,16.57,7,17.73,12.06,19.19,17.73,23.36c8.92,3.5,12.83,4.38,15.24,5.24,5.85,2.14,9.5,1.75,11.45,1a13.1,13.1,0,0,0,8.32-5.55c1.75-2.5,1.75-4.64,1.16-5.24S172.19,147.19,169.87,146Z"></path></svg></a>
+                    <a href="mailto:mohamedkhairy0887@gmail.com" title="Email" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg></a>
+                 </div>
+            </div>
+        </div>
+      </footer>
+    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const html = document.documentElement;
+        const darkModeToggle = document.getElementById('darkModeToggle');
+        const languageToggle = document.getElementById('languageToggle');
+        const translatableElements = document.querySelectorAll('[data-lang-en]');
+        const applyTheme = (theme) => {
+          html.classList.toggle('dark', theme === 'dark');
+          document.getElementById('sunIcon').classList.toggle('hidden', theme === 'dark');
+          document.getElementById('moonIcon').classList.toggle('hidden', theme !== 'dark');
+        };
+        darkModeToggle.addEventListener('click', () => {
+          const newTheme = html.classList.contains('dark') ? 'light' : 'dark';
+          localStorage.setItem('theme', newTheme);
+          applyTheme(newTheme);
+        });
+        const applyLanguage = (lang) => {
+          html.setAttribute('lang', lang);
+          languageToggle.textContent = lang === 'en' ? 'العربية' : 'English';
+          translatableElements.forEach(el => {
+            const textToSet = (lang === 'ar') ? el.dataset.langAr : el.dataset.langEn;
+            if (textToSet) el.textContent = textToSet;
+          });
+        };
+        languageToggle.addEventListener('click', () => {
+          const newLang = html.lang === 'en' ? 'ar' : 'en';
+          localStorage.setItem('language', newLang);
+          applyLanguage(newLang);
+        });
+        const observer = new IntersectionObserver((entries) => {
+          entries.forEach(entry => {
+            if (entry.isIntersecting) {
+              const delay = parseFloat(entry.target.style.getPropertyValue('--delay') || '0s') * 1000;
+              setTimeout(() => { entry.target.classList.add('is-visible'); }, delay);
+              observer.unobserve(entry.target);
+            }
+          });
+        }, { threshold: 0.1 });
+        document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+        const savedTheme = localStorage.getItem('theme') || 'light';
+        applyTheme(savedTheme);
+        const savedLang = localStorage.getItem('language') || 'en';
+        applyLanguage(savedLang);
+      });
+    </script>
+  </body>
+</html>
