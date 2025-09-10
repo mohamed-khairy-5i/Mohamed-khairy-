@@ -1,0 +1,45 @@
+/* Shared Mobile Menu Styles */
+.mobile-menu {
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+}
+.mobile-menu.open {
+  transform: translateX(0);
+}
+.hamburger {
+  cursor: pointer;
+  padding: 8px;
+}
+.hamburger span {
+  display: block;
+  width: 24px;
+  height: 3px;
+  background: currentColor;
+  margin: 6px 0;
+  transition: 0.3s;
+}
+.hamburger.active span:nth-child(1) {
+  transform: rotate(-45deg) translate(-6px, 6px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(45deg) translate(-6px, -6px);
+}
+
+/* Enhanced responsiveness */
+@media (max-width: 768px) {
+  .hero-section {
+    padding: 2rem 1rem !important;
+  }
+  .hero-title {
+    font-size: 2.5rem !important;
+  }
+  .service-cards {
+    grid-template-columns: 1fr !important;
+  }
+  .project-grid {
+    grid-template-columns: 1fr !important;
+  }
+}

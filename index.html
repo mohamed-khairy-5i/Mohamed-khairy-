@@ -20,6 +20,36 @@
       html[lang="ar"] { direction: rtl; }
       .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
       .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+      
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+      .hamburger {
+        cursor: pointer;
+        padding: 8px;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: currentColor;
+        margin: 6px 0;
+        transition: 0.3s;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+      }
     </style>
   </head>
   <body class="bg-main text-main transition-colors duration-300">
@@ -31,19 +61,53 @@
             <h2 class="text-main text-lg font-bold" data-lang-en="Mohamed Khairy" data-lang-ar="محمد خيري">Mohamed Khairy</h2>
         </a>
         <div class="flex items-center gap-4">
+          <!-- Desktop Navigation -->
           <nav class="hidden items-center gap-6 md:flex">
             <a class="text-main text-sm font-medium hover:text-secondary" href="projects.html" data-lang-en="Projects" data-lang-ar="المشاريع">Projects</a>
             <a class="text-main text-sm font-medium hover:text-secondary" href="about.html" data-lang-en="About" data-lang-ar="من أنا">About</a>
+            <a class="text-main text-sm font-medium hover:text-secondary" href="certificates.html" data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</a>
             <a class="text-main text-sm font-medium hover:text-secondary" href="contact.html" data-lang-en="Contact" data-lang-ar="التواصل">Contact</a>
           </nav>
+          
           <div class="flex items-center gap-3">
               <button id="languageToggle" class="bg-subtle text-main h-9 w-16 text-sm font-bold rounded-full">العربية</button>
               <button id="darkModeToggle" class="bg-subtle flex h-9 w-9 items-center justify-center rounded-full">
                   <svg id="sunIcon" class="text-main" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM232,128A8,8,0,0,1,224,136h-8a8,8,0,0,1,0-16h8A8,8,0,0,1,232,128ZM40,120H32a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16ZM195.92,68.08a8,8,0,0,0,5.65-2.34l5.66-5.66a8,8,0,0,0-11.32-11.32L190.26,54.4a8,8,0,0,0,5.66,13.68ZM60.08,195.92l-5.66,5.66a8,8,0,0,0,11.32,11.32l5.66-5.66a8,8,0,0,0-11.32-11.32ZM201.58,190.26a8,8,0,0,0-11.32,11.32l5.66,5.66a8,8,0,0,0,11.32-11.32ZM54.4,60.08a8,8,0,0,0,11.32-11.32L60.08,43.1,48.76,54.42A8,8,0,0,0,54.4,60.08ZM128,232a8,8,0,0,1-8-8v-8a8,8,0,0,1,16,0v8A8,8,0,0,1,128,232ZM128,40a8,8,0,0,0-8-8V24a8,8,0,0,0,16,0v8A8,8,0,0,0,128,40Z"></path></svg>
                   <svg id="moonIcon" class="text-main hidden" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M216.7,152.24a8,8,0,0,1-8.55,1.24,80.11,80.11,0,0,0-91,91,8,8,0,0,1,9.79,12.44,96.12,96.12,0,1,0-93.44-93.44,8,8,0,0,1,12.44,9.79,80.11,80.11,0,0,0,91-91,8,8,0,0,1,1.24-8.55,8,8,0,0,1,14.23,5.15A96.06,96.06,0,0,1,216.7,152.24Z"></path></svg>
               </button>
+              
+              <!-- Mobile Menu Button -->
+              <button id="mobileMenuToggle" class="hamburger text-main md:hidden">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
           </div>
         </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 z-50 w-64 bg-main shadow-xl md:hidden">
+          <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-4 border-b border-subtle">
+              <h2 class="text-lg font-bold text-main" data-lang-en="Menu" data-lang-ar="القائمة">Menu</h2>
+              <button id="closeMobileMenu" class="text-main hover:text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-4">
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="projects.html" data-lang-en="Projects" data-lang-ar="المشاريع">Projects</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="about.html" data-lang-en="About" data-lang-ar="من أنا">About</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="certificates.html" data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="contact.html" data-lang-en="Contact" data-lang-ar="التواصل">Contact</a>
+            </nav>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden hidden"></div>
       </header>
 
       <!-- Main Content -->
@@ -87,6 +151,58 @@
               <div class="mt-12 text-center">
                 <a href="projects.html" class="btn-primary inline-block rounded-full px-8 py-3 font-bold transition" data-lang-en="View All Projects" data-lang-ar="عرض كل المشاريع">View All Projects</a>
               </div>
+          </div>
+        </section>
+
+        <!-- Certifications Preview Section -->
+        <section class="bg-subtle py-20 px-4 md:px-10">
+          <div class="mx-auto max-w-6xl">
+            <div class="text-center animate-on-scroll">
+              <h2 class="text-3xl font-bold text-main" data-lang-en="Professional Certifications" data-lang-ar="الشهادات المهنية">Professional Certifications</h2>
+              <p class="mt-2 text-secondary" data-lang-en="Continuous learning in AI, web development, and digital marketing." data-lang-ar="التعلم المستمر في الذكاء الاصطناعي وتطوير الويب والتسويق الرقمي.">Continuous learning in AI, web development, and digital marketing.</p>
+            </div>
+            
+            <div class="mt-12 grid gap-6 md:grid-cols-3">
+              <div class="bg-main rounded-lg p-6 shadow-sm animate-on-scroll">
+                <div class="text-center">
+                  <div class="bg-subtle p-3 rounded-lg inline-block mb-4">
+                    <svg class="w-8 h-8 text-main" fill="currentColor" viewBox="0 0 20 20">
+                      <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-main mb-2" data-lang-en="AI & Machine Learning" data-lang-ar="الذكاء الاصطناعي">AI & Machine Learning</h3>
+                  <p class="text-sm text-secondary" data-lang-en="Certified in AI fundamentals and machine learning applications" data-lang-ar="شهادات في أساسيات الذكاء الاصطناعي وتطبيقات التعلم الآلي">Certified in AI fundamentals and machine learning applications</p>
+                </div>
+              </div>
+              
+              <div class="bg-main rounded-lg p-6 shadow-sm animate-on-scroll" style="--delay: 0.1s;">
+                <div class="text-center">
+                  <div class="bg-subtle p-3 rounded-lg inline-block mb-4">
+                    <svg class="w-8 h-8 text-main" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-main mb-2" data-lang-en="Computer Science" data-lang-ar="علوم الحاسوب">Computer Science</h3>
+                  <p class="text-sm text-secondary" data-lang-en="Strong foundation in programming and software development" data-lang-ar="أساس قوي في البرمجة وتطوير البرمجيات">Strong foundation in programming and software development</p>
+                </div>
+              </div>
+              
+              <div class="bg-main rounded-lg p-6 shadow-sm animate-on-scroll" style="--delay: 0.2s;">
+                <div class="text-center">
+                  <div class="bg-subtle p-3 rounded-lg inline-block mb-4">
+                    <svg class="w-8 h-8 text-main" fill="currentColor" viewBox="0 0 20 20">
+                      <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
+                    </svg>
+                  </div>
+                  <h3 class="text-xl font-bold text-main mb-2" data-lang-en="Digital Marketing" data-lang-ar="التسويق الرقمي">Digital Marketing</h3>
+                  <p class="text-sm text-secondary" data-lang-en="Expert in social media marketing and online sales strategies" data-lang-ar="خبير في التسويق عبر وسائل التواصل واستراتيجيات البيع الإلكتروني">Expert in social media marketing and online sales strategies</p>
+                </div>
+              </div>
+            </div>
+            
+            <div class="mt-12 text-center">
+              <a href="certificates.html" class="btn-primary inline-block rounded-full px-8 py-3 font-bold transition" data-lang-en="View All Certificates" data-lang-ar="عرض كل الشهادات">View All Certificates</a>
+            </div>
           </div>
         </section>
       </main>
@@ -152,6 +268,35 @@
         applyTheme(savedTheme);
         const savedLang = localStorage.getItem('language') || 'en';
         applyLanguage(savedLang);
+        
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        const openMobileMenu = () => {
+          mobileMenu.classList.add('open');
+          mobileMenuOverlay.classList.remove('hidden');
+          mobileMenuToggle.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        };
+        
+        const closeMobileMenuFunc = () => {
+          mobileMenu.classList.remove('open');
+          mobileMenuOverlay.classList.add('hidden');
+          mobileMenuToggle.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        };
+        
+        mobileMenuToggle?.addEventListener('click', openMobileMenu);
+        closeMobileMenu?.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay?.addEventListener('click', closeMobileMenuFunc);
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+          link.addEventListener('click', closeMobileMenuFunc);
+        });
       });
     </script>
   </body>

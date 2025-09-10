@@ -22,6 +22,36 @@
       html[lang="ar"] { direction: rtl; }
       .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
       .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
+      
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s ease-in-out;
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+      .hamburger {
+        cursor: pointer;
+        padding: 8px;
+      }
+      .hamburger span {
+        display: block;
+        width: 24px;
+        height: 3px;
+        background: currentColor;
+        margin: 6px 0;
+        transition: 0.3s;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-6px, 6px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-6px, -6px);
+      }
       .certificate-card { 
         transition: all 0.3s ease; 
         cursor: pointer;
@@ -122,7 +152,39 @@
                   <svg id="sunIcon" class="text-main" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM232,128A8,8,0,0,1,224,136h-8a8,8,0,0,1,0-16h8A8,8,0,0,1,232,128ZM40,120H32a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16ZM195.92,68.08a8,8,0,0,0,5.65-2.34l5.66-5.66a8,8,0,0,0-11.32-11.32L190.26,54.4a8,8,0,0,0,5.66,13.68ZM60.08,195.92l-5.66,5.66a8,8,0,0,0,11.32,11.32l5.66-5.66a8,8,0,0,0-11.32-11.32ZM201.58,190.26a8,8,0,0,0-11.32,11.32l5.66,5.66a8,8,0,0,0,11.32-11.32ZM54.4,60.08a8,8,0,0,0,11.32-11.32L60.08,43.1,48.76,54.42A8,8,0,0,0,54.4,60.08ZM128,232a8,8,0,0,1-8-8v-8a8,8,0,0,1,16,0v8A8,8,0,0,1,128,232ZM128,40a8,8,0,0,0-8-8V24a8,8,0,0,0,16,0v8A8,8,0,0,0,128,40Z"></path></svg>
                   <svg id="moonIcon" class="text-main hidden" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M216.7,152.24a8,8,0,0,1-8.55,1.24,80.11,80.11,0,0,0-91,91,8,8,0,0,1,9.79,12.44,96.12,96.12,0,1,0-93.44-93.44,8,8,0,0,1,12.44,9.79,80.11,80.11,0,0,0,91-91,8,8,0,0,1,1.24-8.55,8,8,0,0,1,14.23,5.15A96.06,96.06,0,0,1,216.7,152.24Z"></path></svg>
               </button>
+              
+              <!-- Mobile Menu Button -->
+              <button id="mobileMenuToggle" class="hamburger text-main md:hidden">
+                  <span></span>
+                  <span></span>
+                  <span></span>
+              </button>
           </div>
+        </div>
+        
+        <!-- Mobile Navigation Menu -->
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 z-50 w-64 bg-main shadow-xl md:hidden">
+          <div class="flex flex-col h-full">
+            <div class="flex items-center justify-between p-4 border-b border-subtle">
+              <h2 class="text-lg font-bold text-main" data-lang-en="Menu" data-lang-ar="القائمة">Menu</h2>
+              <button id="closeMobileMenu" class="text-main hover:text-secondary">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
+                </svg>
+              </button>
+            </div>
+            <nav class="flex-1 px-4 py-6 space-y-4">
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="projects.html" data-lang-en="Projects" data-lang-ar="المشاريع">Projects</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="about.html" data-lang-en="About" data-lang-ar="من أنا">About</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle border-main" href="certificates.html" data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</a>
+              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="contact.html" data-lang-en="Contact" data-lang-ar="التواصل">Contact</a>
+            </nav>
+          </div>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden hidden"></div>
         </div>
       </header>
       <!-- Main Content -->
@@ -407,7 +469,7 @@
         <span class="close" onclick="closeModal('modal4')">&times;</span>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/2sglmec4f4z6ngw4xi42g/.pdf?rlkey=n0vewnv19wmf93llc0x92z8gw&dl=1" alt="AI for Beginners Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
+            <img src="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=1" alt="AI for Beginners Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
           </div>
           <div class="lg:w-1/2">
             <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Artificial Intelligence for Beginners" data-lang-ar="الذكاء الاصطناعي للمبتدئين">الذكاء الاصطناعي للمبتدئين</h2>
@@ -429,7 +491,7 @@
                 <span class="skill-tag">Future Trends</span>
               </div>
             </div>
-            <a href="https://www.life-global.org/ar/course/399-الذكاء-الاصطناعي-للمبتدئين" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Course" data-lang-ar="عرض الكورس">View Course</a>
+            <a href="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
           </div>
         </div>
       </div>
@@ -440,7 +502,7 @@
         <span class="close" onclick="closeModal('modal5')">&times;</span>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/a8mpq69r1zh9hqhkansvl/.pdf?rlkey=9i24fthq2v4c1zq11uazzfr1s&dl=1" alt="Social Media Marketing Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
+            <img src="https://www.dropbox.com/scl/fi/f8nys55kchlyvbf2mphrt/.jpg?rlkey=f83o5tqpbtopyvir37ob62xpp&st=9xipj3io&dl=1" alt="Social Media Marketing Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
           </div>
           <div class="lg:w-1/2">
             <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Social Media Marketing" data-lang-ar="التسويق عبر شبكات التواصل الاجتماعي">التسويق عبر شبكات التواصل الاجتماعي</h2>
@@ -463,7 +525,7 @@
                 <span class="skill-tag">Analytics</span>
               </div>
             </div>
-            <a href="https://www.life-global.org/ar/course/208-التسويق-عبر-شبكات-التواصل-الاجتماعي" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Course" data-lang-ar="عرض الكورس">View Course</a>
+            <a href="https://www.dropbox.com/scl/fi/f8nys55kchlyvbf2mphrt/.jpg?rlkey=f83o5tqpbtopyvir37ob62xpp&st=9xipj3io&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
           </div>
         </div>
       </div>
@@ -474,7 +536,7 @@
         <span class="close" onclick="closeModal('modal6')">&times;</span>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/dzpr8fp319e9xcclowo6k/.pdf?rlkey=7rmw1plm6s9auntz6hyau4cny&dl=1" alt="Online Selling Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
+            <img src="https://www.dropbox.com/scl/fi/0pinaqyw5c0h5qba9fl6f/.jpg?rlkey=j4gbydic6d7yggg3qb62e0wlh&st=mfir8d31&dl=1" alt="Online Selling Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
           </div>
           <div class="lg:w-1/2">
             <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Online Selling" data-lang-ar="البيع عبر الإنترنت">البيع عبر الإنترنت</h2>
@@ -497,7 +559,7 @@
                 <span class="skill-tag">Conversion Optimization</span>
               </div>
             </div>
-            <a href="https://www.life-global.org/ar/course/205-البيع-عبر-الإنترنت" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Course" data-lang-ar="عرض الكورس">View Course</a>
+            <a href="https://www.dropbox.com/scl/fi/0pinaqyw5c0h5qba9fl6f/.jpg?rlkey=j4gbydic6d7yggg3qb62e0wlh&st=mfir8d31&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
           </div>
         </div>
       </div>
@@ -566,6 +628,35 @@
         applyTheme(savedTheme);
         const savedLang = localStorage.getItem('language') || 'en';
         applyLanguage(savedLang);
+        
+        // Mobile menu functionality
+        const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+        const closeMobileMenu = document.getElementById('closeMobileMenu');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+        
+        const openMobileMenu = () => {
+          mobileMenu.classList.add('open');
+          mobileMenuOverlay.classList.remove('hidden');
+          mobileMenuToggle.classList.add('active');
+          document.body.style.overflow = 'hidden';
+        };
+        
+        const closeMobileMenuFunc = () => {
+          mobileMenu.classList.remove('open');
+          mobileMenuOverlay.classList.add('hidden');
+          mobileMenuToggle.classList.remove('active');
+          document.body.style.overflow = 'auto';
+        };
+        
+        mobileMenuToggle?.addEventListener('click', openMobileMenu);
+        closeMobileMenu?.addEventListener('click', closeMobileMenuFunc);
+        mobileMenuOverlay?.addEventListener('click', closeMobileMenuFunc);
+        
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('#mobileMenu a').forEach(link => {
+          link.addEventListener('click', closeMobileMenuFunc);
+        });
       });
       // Modal functions
       function openModal(modalId) {
