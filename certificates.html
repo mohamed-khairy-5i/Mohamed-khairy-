@@ -92,6 +92,13 @@
       .certificate-image:hover {
         transform: scale(1.02);
       }
+      /* Custom icon colors to match site theme */
+      .icon-accent-1 { color: #866e5f; }
+      .dark .icon-accent-1 { color: #a8a29e; }
+      .icon-accent-2 { color: #57534e; }
+      .dark .icon-accent-2 { color: #ecdacf; }
+      .icon-accent-3 { color: #26221f; }
+      .dark .icon-accent-3 { color: #f0ecea; }
     </style>
   </head>
   <body class="bg-main text-main transition-colors duration-300">
@@ -118,7 +125,6 @@
           </div>
         </div>
       </header>
-
       <!-- Main Content -->
       <main class="flex-1 py-20 px-4 md:px-10">
         <div class="mx-auto max-w-6xl">
@@ -146,15 +152,14 @@
                 <div class="mt-2 text-sm text-secondary" data-lang-en="Latest Certification" data-lang-ar="أحدث شهادة">Latest Certification</div>
               </div>
             </div>
-
             <!-- Certificates Grid -->
             <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               
               <!-- Certificate 1: AI impacts on software testing -->
               <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" onclick="openModal('modal1')">
                 <div class="flex items-start justify-between mb-4">
-                  <div class="bg-blue-100 dark:bg-blue-900 p-3 rounded-lg">
-                    <svg class="w-6 h-6 text-blue-600 dark:text-blue-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div class="bg-subtle p-3 rounded-lg">
+                    <svg class="w-6 h-6 icon-accent-1" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                   </div>
@@ -169,12 +174,11 @@
                   </svg>
                 </div>
               </div>
-
               <!-- Certificate 2: Computer Science Fundamentals -->
               <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.1s;" onclick="openModal('modal2')">
                 <div class="flex items-start justify-between mb-4">
-                  <div class="bg-purple-100 dark:bg-purple-900 p-3 rounded-lg">
-                    <svg class="w-6 h-6 text-purple-600 dark:text-purple-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div class="bg-subtle p-3 rounded-lg">
+                    <svg class="w-6 h-6 icon-accent-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                     </svg>
                   </div>
@@ -189,12 +193,11 @@
                   </svg>
                 </div>
               </div>
-
               <!-- Certificate 3: AI Fundamentals -->
               <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.2s;" onclick="openModal('modal3')">
                 <div class="flex items-start justify-between mb-4">
-                  <div class="bg-indigo-100 dark:bg-indigo-900 p-3 rounded-lg">
-                    <svg class="w-6 h-6 text-indigo-600 dark:text-indigo-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div class="bg-subtle p-3 rounded-lg">
+                    <svg class="w-6 h-6 icon-accent-3" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                     </svg>
                   </div>
@@ -209,12 +212,11 @@
                   </svg>
                 </div>
               </div>
-
               <!-- Certificate 4: AI for Beginners -->
               <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" onclick="openModal('modal4')">
                 <div class="flex items-start justify-between mb-4">
-                  <div class="bg-green-100 dark:bg-green-900 p-3 rounded-lg">
-                    <svg class="w-6 h-6 text-green-600 dark:text-green-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div class="bg-subtle p-3 rounded-lg">
+                    <svg class="w-6 h-6 icon-accent-1" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                   </div>
@@ -229,12 +231,11 @@
                   </svg>
                 </div>
               </div>
-
               <!-- Certificate 5: Social Media Marketing -->
               <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.1s;" onclick="openModal('modal5')">
                 <div class="flex items-start justify-between mb-4">
-                  <div class="bg-pink-100 dark:bg-pink-900 p-3 rounded-lg">
-                    <svg class="w-6 h-6 text-pink-600 dark:text-pink-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div class="bg-subtle p-3 rounded-lg">
+                    <svg class="w-6 h-6 icon-accent-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                     </svg>
                   </div>
@@ -249,12 +250,11 @@
                   </svg>
                 </div>
               </div>
-
               <!-- Certificate 6: Online Selling -->
               <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.2s;" onclick="openModal('modal6')">
                 <div class="flex items-start justify-between mb-4">
-                  <div class="bg-yellow-100 dark:bg-yellow-900 p-3 rounded-lg">
-                    <svg class="w-6 h-6 text-yellow-600 dark:text-yellow-400" fill="currentColor" viewBox="0 0 20 20">
+                  <div class="bg-subtle p-3 rounded-lg">
+                    <svg class="w-6 h-6 icon-accent-3" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                     </svg>
                   </div>
@@ -269,11 +269,9 @@
                   </svg>
                 </div>
               </div>
-
             </div>
         </div>
       </main>
-
       <!-- Footer -->
       <footer class="bg-subtle border-t border-subtle py-16 px-4 md:px-10">
         <div class="mx-auto max-w-5xl text-center">
@@ -284,7 +282,7 @@
                  <p class="text-sm text-secondary" data-lang-en="© 2024 Mohamed Khairy. All rights reserved." data-lang-ar="© 2024 محمد خيري. جميع الحقوق محفوظة.">© 2024 Mohamed Khairy. All rights reserved.</p>
                  <div class="flex justify-center gap-5">
                     <a href="https://www.facebook.com/profile.php?id=61578307505627" target="_blank" title="Facebook" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H132V160H108V128h24V104a40,40,0,0,1,40-40h28v32H176a8,8,0,0,0-8,8v16h32l-4,32H168v72h48a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Z"></path></svg></a>
-                    <a href="https://www.instagram.com/mohamed_khairy_5i/" target="_blank" title="Instagram" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0 01-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg></a>
+                    <a href="https://www.instagram.com/mohamed_khairy_5i/" target="_blank" title="Instagram" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,01-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg></a>
                     <a href="https://wa.me/201060487315" target="_blank" title="WhatsApp" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,24,128c0,19.38,5.4,37.33,14.51,52.12L25.29,228.71a8,8,0,0,0,9.42,9.42l48.59-13.22A103.37,103.37,0,0,0,128,232a104,104,0,0,0,0-208Zm0,192a87.87,87.87,0,0,1-44.24-12.27l-3.13-1.87-33,9-9-33,1.87-3.13A88,88,0,1,1,128,216ZM169.87,146c-2.32-1.16-13.75-6.78-15.89-7.56s-3.68-1.16-5.24.83-6,7.56-7.38,9.12-2.75,1.75-5.07.58-9.5-3.5-18.09-11.16-13.68-13.22-15.24-16.14-1.56-2.5-2.14-3.08,0-2.32,1-3.29,1.75-1.75,2.5-2.75a40.52,40.52,0,0,0,1.75-3.08,3,3,0,0,0-.29-2.92c-.58-.58-5.24-12.62-7.18-17.28s-3.89-4-5.24-4-2.5-.09-3.68-.09-3.08.58-4.64,2.92-6,5.85-6,14.28,6.14,16.57,7,17.73,12.06,19.19,17.73,23.36c8.92,3.5,12.83,4.38,15.24,5.24,5.85,2.14,9.5,1.75,11.45,1a13.1,13.1,0,0,0,8.32-5.55c1.75-2.5,1.75-4.64,1.16-5.24S172.19,147.19,169.87,146Z"></path></svg></a>
                     <a href="mailto:mohamedkhairy0887@gmail.com" title="Email" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg></a>
                  </div>
@@ -292,7 +290,6 @@
         </div>
       </footer>
     </div>
-
     <!-- Modals for Certificate Details -->
     
     <!-- Modal 1: AI impacts on software testing -->
@@ -301,7 +298,7 @@
         <span class="close" onclick="closeModal('modal1')">&times;</span>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/wflio50kgtosi3wdf37ih/.jpg?rlkey=ekev5q4xfit452x2ibr6wrl8w&dl=1" alt="AI impacts on software testing Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
+            <img src="https://www.dropbox.com/scl/fi/koxxbt2tgg2hzrcz1vyv4/.jpg?rlkey=ovm2qzb151mljtat5n1gyk8dj&st=ouc2i2gd&dl=0" alt="AI impacts on software testing Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
           </div>
           <div class="lg:w-1/2">
             <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="AI Impacts on Software Testing" data-lang-ar="تأثيرات الذكاء الاصطناعي على اختبار البرمجيات">AI Impacts on Software Testing</h2>
@@ -326,19 +323,18 @@
                 <span class="skill-tag">Quality Assurance</span>
               </div>
             </div>
-            <a href="https://www.mindluster.com/certificate/15819/AI-impacts-on-software-testing-video" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
+            <a href="https://www.dropbox.com/scl/fi/koxxbt2tgg2hzrcz1vyv4/.jpg?rlkey=ovm2qzb151mljtat5n1gyk8dj&st=ouc2i2gd&dl=0" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Modal 2: Computer Science Fundamentals -->
     <div id="modal2" class="modal">
       <div class="modal-content bg-main">
         <span class="close" onclick="closeModal('modal2')">&times;</span>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/g1zkyrx6rufcds23d8rcv/.jpg?rlkey=pqg2f5nqvyy7o2ja68kj6343f&dl=1" alt="Computer Science Fundamentals Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
+            <img src="https://www.dropbox.com/scl/fi/vglzerhq4vq7jog17xvae/.jpg?rlkey=e4uz3tyrddfzx184bs431angm&st=os50nqt3&dl=0" alt="Computer Science Fundamentals Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
           </div>
           <div class="lg:w-1/2">
             <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Computer Science Fundamentals" data-lang-ar="أساسيات علوم الحاسوب">Computer Science Fundamentals</h2>
@@ -364,19 +360,18 @@
                 <span class="skill-tag">Problem Solving</span>
               </div>
             </div>
-            <a href="https://www.mindluster.com/certificate/15730/Computer-science-fundamentals-video" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
+            <a href="https://www.dropbox.com/scl/fi/vglzerhq4vq7jog17xvae/.jpg?rlkey=e4uz3tyrddfzx184bs431angm&st=os50nqt3&dl=0" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Modal 3: AI Fundamentals -->
     <div id="modal3" class="modal">
       <div class="modal-content bg-main">
         <span class="close" onclick="closeModal('modal3')">&times;</span>
         <div class="flex flex-col lg:flex-row gap-8">
           <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/w14a87deql4nn4rv11ekz/.jpg?rlkey=og2ea411h5whrnnt0ucni9kne&dl=1" alt="AI Fundamentals Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
+            <img src="https://www.dropbox.com/scl/fi/1w3mn1tswbomu66m25qpa/.jpg?rlkey=mnr8rnc81rtowwl6n1e6eugcp&st=a29unzj0&dl=0" alt="AI Fundamentals Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
           </div>
           <div class="lg:w-1/2">
             <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="AI Fundamentals" data-lang-ar="أساسيات الذكاء الاصطناعي">AI Fundamentals</h2>
@@ -401,12 +396,11 @@
                 <span class="skill-tag">AI Frameworks</span>
               </div>
             </div>
-            <a href="https://www.mindluster.com/certificate/15731/AI-fundamentals-video" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
+            <a href="https://www.dropbox.com/scl/fi/1w3mn1tswbomu66m25qpa/.jpg?rlkey=mnr8rnc81rtowwl6n1e6eugcp&st=a29unzj0&dl=0" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
           </div>
         </div>
       </div>
     </div>
-
     <!-- Modal 4: AI for Beginners -->
     <div id="modal4" class="modal">
       <div class="modal-content bg-main">
@@ -440,7 +434,6 @@
         </div>
       </div>
     </div>
-
     <!-- Modal 5: Social Media Marketing -->
     <div id="modal5" class="modal">
       <div class="modal-content bg-main">
@@ -475,7 +468,6 @@
         </div>
       </div>
     </div>
-
     <!-- Modal 6: Online Selling -->
     <div id="modal6" class="modal">
       <div class="modal-content bg-main">
@@ -510,7 +502,6 @@
         </div>
       </div>
     </div>
-
     <script>
       // Theme and Language handling (same as other pages)
       document.addEventListener('DOMContentLoaded', () => {
@@ -576,18 +567,15 @@
         const savedLang = localStorage.getItem('language') || 'en';
         applyLanguage(savedLang);
       });
-
       // Modal functions
       function openModal(modalId) {
         document.getElementById(modalId).style.display = 'block';
         document.body.style.overflow = 'hidden';
       }
-
       function closeModal(modalId) {
         document.getElementById(modalId).style.display = 'none';
         document.body.style.overflow = 'auto';
       }
-
       // Close modal when clicking outside
       window.onclick = function(event) {
         if (event.target.classList.contains('modal')) {
@@ -595,7 +583,6 @@
           document.body.style.overflow = 'auto';
         }
       }
-
       // Close modal with Escape key
       document.addEventListener('keydown', function(event) {
         if (event.key === 'Escape') {
