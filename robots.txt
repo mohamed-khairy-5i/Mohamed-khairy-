@@ -1,0 +1,10 @@
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://mohamedkhairy.com/sitemap.xml
+
+# Disallow any temporary or admin files
+Disallow: /web_server.py
+Disallow: /supervisord.conf
+Disallow: /*.log
