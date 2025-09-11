@@ -8,7 +8,7 @@
     <meta name="keywords" content="Mohamed Khairy, certificates, AI certification, computer science, digital marketing, web development, education" />
     <link rel="canonical" href="https://mohamedkhairy.com/certificates.html" />
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
-    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans:wght@400;500;700;900" />
+    <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&family=Noto+Sans:wght@400;500;700;900" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <style>
       body { font-family: "Noto Sans", sans-serif; overflow-x: hidden; }
@@ -26,7 +26,8 @@
       /* Mobile Menu Styles */
       .mobile-menu {
         transform: translateX(-100%);
-        transition: transform 0.3s ease-in-out;
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
       }
       .mobile-menu.open {
         transform: translateX(0);
@@ -34,24 +35,56 @@
       .hamburger {
         cursor: pointer;
         padding: 8px;
+        transition: all 0.2s ease;
+      }
+      .hamburger:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+      }
+      .dark .hamburger:hover {
+        background-color: rgba(255, 255, 255, 0.05);
       }
       .hamburger span {
         display: block;
-        width: 24px;
-        height: 3px;
+        width: 22px;
+        height: 2px;
         background: currentColor;
-        margin: 6px 0;
-        transition: 0.3s;
+        margin: 5px 0;
+        transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        border-radius: 2px;
       }
       .hamburger.active span:nth-child(1) {
-        transform: rotate(-45deg) translate(-6px, 6px);
+        transform: rotate(-45deg) translate(-5px, 6px);
       }
       .hamburger.active span:nth-child(2) {
         opacity: 0;
+        transform: translateX(10px);
       }
       .hamburger.active span:nth-child(3) {
-        transform: rotate(45deg) translate(-6px, -6px);
+        transform: rotate(45deg) translate(-5px, -6px);
       }
+      
+      /* Enhanced Mobile Menu */
+      .mobile-menu-overlay {
+        backdrop-filter: blur(8px);
+        background: rgba(0, 0, 0, 0.3);
+      }
+      
+      .mobile-nav-link {
+        position: relative;
+        transition: all 0.2s ease;
+      }
+      
+      .mobile-nav-link:hover {
+        background: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+        padding-left: 20px;
+      }
+      
+      .dark .mobile-nav-link:hover {
+        background: rgba(255, 255, 255, 0.05);
+      }
+      
       .certificate-card { 
         transition: all 0.3s ease; 
         cursor: pointer;
@@ -60,84 +93,22 @@
         transform: translateY(-5px); 
         box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
       }
-      .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        background-color: rgba(0, 0, 0, 0.8);
-        backdrop-filter: blur(5px);
-      }
-      .modal-content {
-        background-color: var(--bg-main);
-        margin: 5% auto;
-        padding: 20px;
-        border: none;
-        border-radius: 15px;
-        width: 90%;
-        max-width: 800px;
-        max-height: 80vh;
-        overflow-y: auto;
-        animation: modalFadeIn 0.3s ease-out;
-      }
-      @keyframes modalFadeIn {
-        from { opacity: 0; transform: translateY(-30px); }
-        to { opacity: 1; transform: translateY(0); }
-      }
-      .close {
-        color: var(--text-secondary);
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        cursor: pointer;
-        transition: color 0.3s ease;
-      }
-      .close:hover { color: var(--text-main); }
-      .skill-tag {
-        display: inline-block;
-        background: linear-gradient(135deg, #ecdacf, #e3d1c0);
-        color: #181411;
-        padding: 6px 12px;
-        border-radius: 20px;
-        font-size: 0.875rem;
-        font-weight: 500;
-        margin: 4px 6px 4px 0;
-        transition: all 0.2s ease;
-      }
-      .dark .skill-tag {
-        background: linear-gradient(135deg, #57534e, #6a6661);
-        color: #fbfaf9;
-      }
-      .skill-tag:hover {
-        transform: scale(1.05);
-      }
-      .certificate-image {
-        border-radius: 10px;
-        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-        transition: transform 0.3s ease;
-      }
-      .certificate-image:hover {
-        transform: scale(1.02);
-      }
-      /* Custom icon colors to match site theme */
-      .icon-accent-1 { color: #866e5f; }
-      .dark .icon-accent-1 { color: #a8a29e; }
-      .icon-accent-2 { color: #57534e; }
-      .dark .icon-accent-2 { color: #ecdacf; }
-      .icon-accent-3 { color: #26221f; }
-      .dark .icon-accent-3 { color: #f0ecea; }
     </style>
   </head>
   <body class="bg-main text-main transition-colors duration-300">
     <div class="relative flex min-h-screen flex-col">
       <!-- Header -->
-      <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-subtle bg-main/80 px-4 py-3 backdrop-blur-sm md:px-10">
-        <a href="index.html" class="flex items-center gap-4">
-            <div class="size-4 text-main"><svg viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor"></path></svg></div>
-            <h2 class="text-main text-lg font-bold" data-lang-en="Mohamed Khairy" data-lang-ar="محمد خيري">Mohamed Khairy</h2>
+      <header class="sticky top-0 z-50 flex items-center justify-between whitespace-nowrap border-b border-subtle bg-main/95 px-4 py-4 backdrop-blur-md md:px-10">
+        <a href="index.html" class="flex items-center gap-3">
+            <div class="flex items-center justify-center w-10 h-10 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg shadow-lg">
+              <svg class="w-6 h-6 text-white" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+              </svg>
+            </div>
+            <div class="flex flex-col">
+              <h2 class="text-main text-lg font-bold leading-none" data-lang-en="Mohamed Khairy" data-lang-ar="محمد خيري">Mohamed Khairy</h2>
+              <p class="text-xs text-secondary leading-none" data-lang-en="Web Developer & Designer" data-lang-ar="مطور ويب ومصمم">Web Developer & Designer</p>
+            </div>
         </a>
         <div class="flex items-center gap-4">
           <nav class="hidden items-center gap-6 md:flex">
@@ -146,15 +117,15 @@
             <a class="text-main text-sm font-medium hover:text-secondary border-b-2 border-main" href="certificates.html" data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</a>
             <a class="text-main text-sm font-medium hover:text-secondary" href="contact.html" data-lang-en="Contact" data-lang-ar="التواصل">Contact</a>
           </nav>
-          <div class="flex items-center gap-3">
-              <button id="languageToggle" class="bg-subtle text-main h-9 w-16 text-sm font-bold rounded-full">العربية</button>
-              <button id="darkModeToggle" class="bg-subtle flex h-9 w-9 items-center justify-center rounded-full">
-                  <svg id="sunIcon" class="text-main" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM232,128A8,8,0,0,1,224,136h-8a8,8,0,0,1,0-16h8A8,8,0,0,1,232,128ZM40,120H32a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16ZM195.92,68.08a8,8,0,0,0,5.65-2.34l5.66-5.66a8,8,0,0,0-11.32-11.32L190.26,54.4a8,8,0,0,0,5.66,13.68ZM60.08,195.92l-5.66,5.66a8,8,0,0,0,11.32,11.32l5.66-5.66a8,8,0,0,0-11.32-11.32ZM201.58,190.26a8,8,0,0,0-11.32,11.32l5.66,5.66a8,8,0,0,0,11.32-11.32ZM54.4,60.08a8,8,0,0,0,11.32-11.32L60.08,43.1,48.76,54.42A8,8,0,0,0,54.4,60.08ZM128,232a8,8,0,0,1-8-8v-8a8,8,0,0,1,16,0v8A8,8,0,0,1,128,232ZM128,40a8,8,0,0,0-8-8V24a8,8,0,0,0,16,0v8A8,8,0,0,0,128,40Z"></path></svg>
-                  <svg id="moonIcon" class="text-main hidden" xmlns="http://www.w3.org/2000/svg" width="20px" height="20px" fill="currentColor" viewBox="0 0 256 256"><path d="M216.7,152.24a8,8,0,0,1-8.55,1.24,80.11,80.11,0,0,0-91,91,8,8,0,0,1,9.79,12.44,96.12,96.12,0,1,0-93.44-93.44,8,8,0,0,1,12.44,9.79,80.11,80.11,0,0,0,91-91,8,8,0,0,1,1.24-8.55,8,8,0,0,1,14.23,5.15A96.06,96.06,0,0,1,216.7,152.24Z"></path></svg>
+          <div class="flex items-center gap-4">
+              <button id="languageToggle" class="bg-subtle text-main h-10 w-18 text-sm font-bold rounded-full transition-all duration-200 hover:shadow-md">العربية</button>
+              <button id="darkModeToggle" class="bg-subtle flex h-10 w-10 items-center justify-center rounded-full transition-all duration-200 hover:shadow-md">
+                  <svg id="sunIcon" class="text-main w-5 h-5" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM232,128A8,8,0,0,1,224,136h-8a8,8,0,0,1,0-16h8A8,8,0,0,1,232,128ZM40,120H32a8,8,0,0,0,0,16h8a8,8,0,0,0,0-16ZM195.92,68.08a8,8,0,0,0,5.65-2.34l5.66-5.66a8,8,0,0,0-11.32-11.32L190.26,54.4a8,8,0,0,0,5.66,13.68ZM60.08,195.92l-5.66,5.66a8,8,0,0,0,11.32,11.32l5.66-5.66a8,8,0,0,0-11.32-11.32ZM201.58,190.26a8,8,0,0,0-11.32,11.32l5.66,5.66a8,8,0,0,0,11.32-11.32ZM54.4,60.08a8,8,0,0,0,11.32-11.32L60.08,43.1,48.76,54.42A8,8,0,0,0,54.4,60.08ZM128,232a8,8,0,0,1-8-8v-8a8,8,0,0,1,16,0v8A8,8,0,0,1,128,232ZM128,40a8,8,0,0,0-8-8V24a8,8,0,0,0,16,0v8A8,8,0,0,0,128,40Z"></path></svg>
+                  <svg id="moonIcon" class="text-main w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 256 256"><path d="M216.7,152.24a8,8,0,0,1-8.55,1.24,80.11,80.11,0,0,0-91,91,8,8,0,0,1,9.79,12.44,96.12,96.12,0,1,0-93.44-93.44,8,8,0,0,1,12.44,9.79,80.11,80.11,0,0,0,91-91,8,8,0,0,1,1.24-8.55,8,8,0,0,1,14.23,5.15A96.06,96.06,0,0,1,216.7,152.24Z"></path></svg>
               </button>
               
               <!-- Mobile Menu Button -->
-              <button id="mobileMenuToggle" class="hamburger text-main md:hidden">
+              <button id="mobileMenuToggle" class="hamburger text-main md:hidden p-2">
                   <span></span>
                   <span></span>
                   <span></span>
@@ -163,30 +134,63 @@
         </div>
         
         <!-- Mobile Navigation Menu -->
-        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 z-50 w-64 bg-main shadow-xl md:hidden">
+        <div id="mobileMenu" class="mobile-menu fixed inset-y-0 left-0 z-[60] w-72 bg-main/95 backdrop-blur-xl border-r border-subtle shadow-2xl md:hidden">
           <div class="flex flex-col h-full">
-            <div class="flex items-center justify-between p-4 border-b border-subtle">
-              <h2 class="text-lg font-bold text-main" data-lang-en="Menu" data-lang-ar="القائمة">Menu</h2>
-              <button id="closeMobileMenu" class="text-main hover:text-secondary">
-                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="flex items-center justify-between p-6 border-b border-subtle/50">
+              <div class="flex items-center gap-3">
+                <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg">
+                  <svg class="w-4 h-4 text-white" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                  </svg>
+                </div>
+                <h2 class="text-lg font-bold text-main" data-lang-en="Menu" data-lang-ar="القائمة">Menu</h2>
+              </div>
+              <button id="closeMobileMenu" class="text-main hover:text-secondary p-2 hover:bg-subtle rounded-lg transition-all duration-200">
+                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                 </svg>
               </button>
             </div>
-            <nav class="flex-1 px-4 py-6 space-y-4">
-              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="index.html" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
-              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="projects.html" data-lang-en="Projects" data-lang-ar="المشاريع">Projects</a>
-              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="about.html" data-lang-en="About" data-lang-ar="من أنا">About</a>
-              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle border-main" href="certificates.html" data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</a>
-              <a class="block text-main text-base font-medium hover:text-secondary py-3 border-b border-subtle" href="contact.html" data-lang-en="Contact" data-lang-ar="التواصل">Contact</a>
+            <nav class="flex-1 px-4 py-6 space-y-2">
+              <a class="mobile-nav-link flex items-center gap-3 text-main text-base font-medium py-4 px-4 rounded-xl transition-all duration-200 border-b border-subtle/30" href="index.html">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M10.707 2.293a1 1 0 00-1.414 0l-7 7a1 1 0 001.414 1.414L4 10.414V17a1 1 0 001 1h2a1 1 0 001-1v-2a1 1 0 011-1h2a1 1 0 011 1v2a1 1 0 001 1h2a1 1 0 001-1v-6.586l.293.293a1 1 0 001.414-1.414l-7-7z"/>
+                </svg>
+                <span data-lang-en="Home" data-lang-ar="الرئيسية">Home</span>
+              </a>
+              <a class="mobile-nav-link flex items-center gap-3 text-main text-base font-medium py-4 px-4 rounded-xl transition-all duration-200 border-b border-subtle/30" href="projects.html">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M4 3a2 2 0 00-2 2v10a2 2 0 002 2h12a2 2 0 002-2V5a2 2 0 00-2-2H4zm12 12H4l4-8 3 6 2-4 3 6z"/>
+                </svg>
+                <span data-lang-en="Projects" data-lang-ar="المشاريع">Projects</span>
+              </a>
+              <a class="mobile-nav-link flex items-center gap-3 text-main text-base font-medium py-4 px-4 rounded-xl transition-all duration-200 border-b border-subtle/30" href="about.html">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 9a3 3 0 100-6 3 3 0 000 6zm-7 9a7 7 0 1114 0H3z" clip-rule="evenodd"/>
+                </svg>
+                <span data-lang-en="About" data-lang-ar="من أنا">About</span>
+              </a>
+              <a class="mobile-nav-link flex items-center gap-3 text-main text-base font-medium py-4 px-4 rounded-xl transition-all duration-200 border-b border-subtle/30 border-main" href="certificates.html">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
+                </svg>
+                <span data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</span>
+              </a>
+              <a class="mobile-nav-link flex items-center gap-3 text-main text-base font-medium py-4 px-4 rounded-xl transition-all duration-200 border-b border-subtle/30" href="contact.html">
+                <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
+                  <path d="M18 8.118l-8 4-8-4V14a2 2 0 002 2h12a2 2 0 002-2V8.118z"/>
+                </svg>
+                <span data-lang-en="Contact" data-lang-ar="التواصل">Contact</span>
+              </a>
             </nav>
           </div>
         </div>
         
-        <!-- Mobile Menu Overlay -->
-        <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 md:hidden hidden"></div>
-        </div>
+        <!-- Enhanced Mobile Menu Overlay -->
+        <div id="mobileMenuOverlay" class="mobile-menu-overlay fixed inset-0 z-[55] md:hidden hidden"></div>
       </header>
+      
       <!-- Main Content -->
       <main class="flex-1 py-20 px-4 md:px-10">
         <div class="mx-auto max-w-6xl">
@@ -214,14 +218,15 @@
                 <div class="mt-2 text-sm text-secondary" data-lang-en="Latest Certification" data-lang-ar="أحدث شهادة">Latest Certification</div>
               </div>
             </div>
+            
             <!-- Certificates Grid -->
             <div class="mt-16 grid gap-8 md:grid-cols-2 lg:grid-cols-3">
               
               <!-- Certificate 1: AI impacts on software testing -->
-              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" onclick="openModal('modal1')">
+              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll">
                 <div class="flex items-start justify-between mb-4">
                   <div class="bg-subtle p-3 rounded-lg">
-                    <svg class="w-6 h-6 icon-accent-1" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
                     </svg>
                   </div>
@@ -236,11 +241,12 @@
                   </svg>
                 </div>
               </div>
+              
               <!-- Certificate 2: Computer Science Fundamentals -->
-              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.1s;" onclick="openModal('modal2')">
+              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.1s;">
                 <div class="flex items-start justify-between mb-4">
                   <div class="bg-subtle p-3 rounded-lg">
-                    <svg class="w-6 h-6 icon-accent-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-blue-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                     </svg>
                   </div>
@@ -255,11 +261,12 @@
                   </svg>
                 </div>
               </div>
+              
               <!-- Certificate 3: AI Fundamentals -->
-              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.2s;" onclick="openModal('modal3')">
+              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.2s;">
                 <div class="flex items-start justify-between mb-4">
                   <div class="bg-subtle p-3 rounded-lg">
-                    <svg class="w-6 h-6 icon-accent-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-purple-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/>
                     </svg>
                   </div>
@@ -274,11 +281,12 @@
                   </svg>
                 </div>
               </div>
+              
               <!-- Certificate 4: AI for Beginners -->
-              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" onclick="openModal('modal4')">
+              <a href="certificate-ai-beginners.html" class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll block transition-all duration-300 hover:shadow-xl hover:-translate-y-1">
                 <div class="flex items-start justify-between mb-4">
                   <div class="bg-subtle p-3 rounded-lg">
-                    <svg class="w-6 h-6 icon-accent-1" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-indigo-600" fill="currentColor" viewBox="0 0 20 20">
                       <path fill-rule="evenodd" d="M6.267 3.455a3.066 3.066 0 001.745-.723 3.066 3.066 0 013.976 0 3.066 3.066 0 001.745.723 3.066 3.066 0 012.812 2.812c.051.643.304 1.254.723 1.745a3.066 3.066 0 010 3.976 3.066 3.066 0 00-.723 1.745 3.066 3.066 0 01-2.812 2.812 3.066 3.066 0 00-1.745.723 3.066 3.066 0 01-3.976 0 3.066 3.066 0 00-1.745-.723 3.066 3.066 0 01-2.812-2.812 3.066 3.066 0 00-.723-1.745 3.066 3.066 0 010-3.976 3.066 3.066 0 00.723-1.745 3.066 3.066 0 012.812-2.812zm7.44 5.252a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"/>
                     </svg>
                   </div>
@@ -292,12 +300,13 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-              </div>
+              </a>
+              
               <!-- Certificate 5: Social Media Marketing -->
-              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.1s;" onclick="openModal('modal5')">
+              <a href="certificate-social-media.html" class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll block transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style="--delay: 0.1s;">
                 <div class="flex items-start justify-between mb-4">
                   <div class="bg-subtle p-3 rounded-lg">
-                    <svg class="w-6 h-6 icon-accent-2" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-pink-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2 3a1 1 0 011-1h2.153a1 1 0 01.986.836l.74 4.435a1 1 0 01-.54 1.06l-1.548.773a11.037 11.037 0 006.105 6.105l.774-1.548a1 1 0 011.059-.54l4.435.74a1 1 0 01.836.986V17a1 1 0 01-1 1h-2C7.82 18 2 12.18 2 5V3z"/>
                     </svg>
                   </div>
@@ -311,12 +320,13 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-              </div>
+              </a>
+              
               <!-- Certificate 6: Online Selling -->
-              <div class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll" style="--delay: 0.2s;" onclick="openModal('modal6')">
+              <a href="certificate-online-selling.html" class="certificate-card bg-subtle rounded-lg p-6 shadow-lg animate-on-scroll block transition-all duration-300 hover:shadow-xl hover:-translate-y-1" style="--delay: 0.2s;">
                 <div class="flex items-start justify-between mb-4">
                   <div class="bg-subtle p-3 rounded-lg">
-                    <svg class="w-6 h-6 icon-accent-3" fill="currentColor" viewBox="0 0 20 20">
+                    <svg class="w-6 h-6 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M3 4a1 1 0 011-1h12a1 1 0 011 1v2a1 1 0 01-1 1H4a1 1 0 01-1-1V4zM3 10a1 1 0 011-1h6a1 1 0 011 1v6a1 1 0 01-1 1H4a1 1 0 01-1-1v-6zM14 9a1 1 0 00-1 1v6a1 1 0 001 1h2a1 1 0 001-1v-6a1 1 0 00-1-1h-2z"/>
                     </svg>
                   </div>
@@ -330,10 +340,11 @@
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
                   </svg>
                 </div>
-              </div>
+              </a>
             </div>
         </div>
       </main>
+      
       <!-- Footer -->
       <footer class="bg-subtle border-t border-subtle py-16 px-4 md:px-10">
         <div class="mx-auto max-w-5xl text-center">
@@ -344,7 +355,7 @@
                  <p class="text-sm text-secondary" data-lang-en="© 2024 Mohamed Khairy. All rights reserved." data-lang-ar="© 2024 محمد خيري. جميع الحقوق محفوظة.">© 2024 Mohamed Khairy. All rights reserved.</p>
                  <div class="flex justify-center gap-5">
                     <a href="https://www.facebook.com/profile.php?id=61578307505627" target="_blank" title="Facebook" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M216,24H40A16,16,0,0,0,24,40V216a16,16,0,0,0,16,16H132V160H108V128h24V104a40,40,0,0,1,40-40h28v32H176a8,8,0,0,0-8,8v16h32l-4,32H168v72h48a16,16,0,0,0,16-16V40A16,16,0,0,0,216,24Z"></path></svg></a>
-                    <a href="https://www.instagram.com/mohamed_khairy_5i/" target="_blank" title="Instagram" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,01-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg></a>
+                    <a href="https://www.instagram.com/mohamed_khairy_5i/" target="_blank" title="Instagram" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,80a48,48,0,1,0,48,48A48.05,48.05,0,0,0,128,80Zm0,80a32,32,0,1,1,32-32A32,32,0,0,1,128,160ZM176,24H80A56.06,56.06,0,0,0,24,80v96a56.06,56.06,0,0,0,56,56h96a56.06,56.06,0,0,0,56-56V80A56.06,56.06,0,0,0,176,24Zm40,152a40,40,0,0,1-40,40H80a40,40,0,0,1-40-40V80A40,40,0,0,1,80,40h96a40,40,0,0,1,40,40ZM192,76a12,12,0,1,1-12-12A12,12,0,0,1,192,76Z"></path></svg></a>
                     <a href="https://wa.me/201060487315" target="_blank" title="WhatsApp" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M128,24A104,104,0,0,0,24,128c0,19.38,5.4,37.33,14.51,52.12L25.29,228.71a8,8,0,0,0,9.42,9.42l48.59-13.22A103.37,103.37,0,0,0,128,232a104,104,0,0,0,0-208Zm0,192a87.87,87.87,0,0,1-44.24-12.27l-3.13-1.87-33,9-9-33,1.87-3.13A88,88,0,1,1,128,216ZM169.87,146c-2.32-1.16-13.75-6.78-15.89-7.56s-3.68-1.16-5.24.83-6,7.56-7.38,9.12-2.75,1.75-5.07.58-9.5-3.5-18.09-11.16-13.68-13.22-15.24-16.14-1.56-2.5-2.14-3.08,0-2.32,1-3.29,1.75-1.75,2.5-2.75a40.52,40.52,0,0,0,1.75-3.08,3,3,0,0,0-.29-2.92c-.58-.58-5.24-12.62-7.18-17.28s-3.89-4-5.24-4-2.5-.09-3.68-.09-3.08.58-4.64,2.92-6,5.85-6,14.28,6.14,16.57,7,17.73,12.06,19.19,17.73,23.36c8.92,3.5,12.83,4.38,15.24,5.24,5.85,2.14,9.5,1.75,11.45,1a13.1,13.1,0,0,0,8.32-5.55c1.75-2.5,1.75-4.64,1.16-5.24S172.19,147.19,169.87,146Z"></path></svg></a>
                     <a href="mailto:mohamedkhairy0887@gmail.com" title="Email" class="text-secondary transition hover:text-main"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" viewBox="0 0 256 256"><path d="M224,48H32a8,8,0,0,0-8,8V192a16,16,0,0,0,16,16H216a16,16,0,0,0,16-16V56A8,8,0,0,0,224,48Zm-96,85.15L52.57,64H203.43ZM98.71,128,40,181.81V74.19Zm11.84,10.85,12,11.05a8,8,0,0,0,10.82,0l12-11.05,58,53.15H52.57ZM157.29,128,216,74.18V181.82Z"></path></svg></a>
                  </div>
@@ -352,220 +363,9 @@
         </div>
       </footer>
     </div>
-    <!-- Modals for Certificate Details -->
-    
-    <!-- Modal 1: AI impacts on software testing -->
-    <div id="modal1" class="modal">
-      <div class="modal-content bg-main">
-        <span class="close" onclick="closeModal('modal1')">&times;</span>
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/koxxbt2tgg2hzrcz1vyv4/.jpg?rlkey=ovm2qzb151mljtat5n1gyk8dj&st=ouc2i2gd&dl=1" alt="AI impacts on software testing Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
-          </div>
-          <div class="lg:w-1/2">
-            <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="AI Impacts on Software Testing" data-lang-ar="تأثيرات الذكاء الاصطناعي على اختبار البرمجيات">AI Impacts on Software Testing</h2>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Details:" data-lang-ar="تفاصيل الكورس:">Course Details:</h3>
-              <p class="text-secondary mb-2" data-lang-en="Platform: Mindluster" data-lang-ar="المنصة: Mindluster">Platform: Mindluster</p>
-              <p class="text-secondary mb-2" data-lang-en="Certificate ID: 15819" data-lang-ar="رقم الشهادة: 15819">Certificate ID: 15819</p>
-              <p class="text-secondary mb-2" data-lang-en="Year: 2024" data-lang-ar="السنة: 2024">Year: 2024</p>
-              <p class="text-secondary mb-2" data-lang-en="Lessons: 2" data-lang-ar="الدروس: 2">Lessons: 2</p>
-            </div>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Description:" data-lang-ar="وصف الكورس:">Course Description:</h3>
-              <p class="text-secondary text-sm leading-relaxed" data-lang-en="Explores the transformative effects of Artificial Intelligence on software testing, providing insights into how AI is reshaping the testing landscape. Covers AI-driven testing tools, automated test case generation, intelligent defect prediction, and AI-based performance monitoring." data-lang-ar="يستكشف التأثيرات التحويلية للذكاء الاصطناعي على اختبار البرمجيات، ويقدم رؤى حول كيفية إعادة تشكيل الذكاء الاصطناعي لمشهد الاختبار. يغطي أدوات الاختبار المدفوعة بالذكاء الاصطناعي وإنشاء حالات الاختبار التلقائية والتنبؤ الذكي بالعيوب ومراقبة الأداء القائمة على الذكاء الاصطناعي.">Explores the transformative effects of Artificial Intelligence on software testing, providing insights into how AI is reshaping the testing landscape. Covers AI-driven testing tools, automated test case generation, intelligent defect prediction, and AI-based performance monitoring.</p>
-            </div>
-            <div class="mb-6">
-              <h3 class="font-semibold text-main mb-3" data-lang-en="Skills Acquired:" data-lang-ar="المهارات المكتسبة:">Skills Acquired:</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">AI Testing Tools</span>
-                <span class="skill-tag">Test Automation</span>
-                <span class="skill-tag">Defect Prediction</span>
-                <span class="skill-tag">Performance Monitoring</span>
-                <span class="skill-tag">Quality Assurance</span>
-              </div>
-            </div>
-            <a href="https://www.dropbox.com/scl/fi/koxxbt2tgg2hzrcz1vyv4/.jpg?rlkey=ovm2qzb151mljtat5n1gyk8dj&st=ouc2i2gd&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 2: Computer Science Fundamentals -->
-    <div id="modal2" class="modal">
-      <div class="modal-content bg-main">
-        <span class="close" onclick="closeModal('modal2')">&times;</span>
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/vglzerhq4vq7jog17xvae/.jpg?rlkey=e4uz3tyrddfzx184bs431angm&st=os50nqt3&dl=1" alt="Computer Science Fundamentals Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
-          </div>
-          <div class="lg:w-1/2">
-            <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Computer Science Fundamentals" data-lang-ar="أساسيات علوم الحاسوب">Computer Science Fundamentals</h2>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Details:" data-lang-ar="تفاصيل الكورس:">Course Details:</h3>
-              <p class="text-secondary mb-2" data-lang-en="Platform: Mindluster" data-lang-ar="المنصة: Mindluster">Platform: Mindluster</p>
-              <p class="text-secondary mb-2" data-lang-en="Certificate ID: 15730" data-lang-ar="رقم الشهادة: 15730">Certificate ID: 15730</p>
-              <p class="text-secondary mb-2" data-lang-en="Year: 2024" data-lang-ar="السنة: 2024">Year: 2024</p>
-              <p class="text-secondary mb-2" data-lang-en="Lessons: 8" data-lang-ar="الدروس: 8">Lessons: 8</p>
-            </div>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Description:" data-lang-ar="وصف الكورس:">Course Description:</h3>
-              <p class="text-secondary text-sm leading-relaxed" data-lang-en="Comprehensive introduction to core computer science concepts including algorithms, data structures, programming principles, and computational thinking. Covers essential programming languages, operating systems, databases, and basic networking concepts." data-lang-ar="مقدمة شاملة لمفاهيم علوم الحاسوب الأساسية بما في ذلك الخوارزميات وهياكل البيانات ومبادئ البرمجة والتفكير الحاسوبي. يغطي لغات البرمجة الأساسية وأنظمة التشغيل وقواعد البيانات ومفاهيم الشبكات الأساسية.">Comprehensive introduction to core computer science concepts including algorithms, data structures, programming principles, and computational thinking. Covers essential programming languages, operating systems, databases, and basic networking concepts.</p>
-            </div>
-            <div class="mb-6">
-              <h3 class="font-semibold text-main mb-3" data-lang-en="Skills Acquired:" data-lang-ar="المهارات المكتسبة:">Skills Acquired:</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">Algorithms</span>
-                <span class="skill-tag">Data Structures</span>
-                <span class="skill-tag">Programming Principles</span>
-                <span class="skill-tag">Python/Java</span>
-                <span class="skill-tag">Database Concepts</span>
-                <span class="skill-tag">Problem Solving</span>
-              </div>
-            </div>
-            <a href="https://www.dropbox.com/scl/fi/vglzerhq4vq7jog17xvae/.jpg?rlkey=e4uz3tyrddfzx184bs431angm&st=os50nqt3&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 3: AI Fundamentals -->
-    <div id="modal3" class="modal">
-      <div class="modal-content bg-main">
-        <span class="close" onclick="closeModal('modal3')">&times;</span>
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/1w3mn1tswbomu66m25qpa/.jpg?rlkey=mnr8rnc81rtowwl6n1e6eugcp&st=a29unzj0&dl=1" alt="AI Fundamentals Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
-          </div>
-          <div class="lg:w-1/2">
-            <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="AI Fundamentals" data-lang-ar="أساسيات الذكاء الاصطناعي">AI Fundamentals</h2>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Details:" data-lang-ar="تفاصيل الكورس:">Course Details:</h3>
-              <p class="text-secondary mb-2" data-lang-en="Platform: Mindluster" data-lang-ar="المنصة: Mindluster">Platform: Mindluster</p>
-              <p class="text-secondary mb-2" data-lang-en="Certificate ID: 15731" data-lang-ar="رقم الشهادة: 15731">Certificate ID: 15731</p>
-              <p class="text-secondary mb-2" data-lang-en="Year: 2024" data-lang-ar="السنة: 2024">Year: 2024</p>
-            </div>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Description:" data-lang-ar="وصف الكورس:">Course Description:</h3>
-              <p class="text-secondary text-sm leading-relaxed" data-lang-en="Comprehensive introduction to Artificial Intelligence fundamentals including machine learning, neural networks, natural language processing, and computer vision. Covers essential AI tools, algorithms, frameworks, and ethical considerations in AI development." data-lang-ar="مقدمة شاملة لأساسيات الذكاء الاصطناعي بما في ذلك التعلم الآلي والشبكات العصبية ومعالجة اللغة الطبيعية ورؤية الحاسوب. يغطي أدوات الذكاء الاصطناعي الأساسية والخوارزميات والأطر والاعتبارات الأخلاقية في تطوير الذكاء الاصطناعي.">Comprehensive introduction to Artificial Intelligence fundamentals including machine learning, neural networks, natural language processing, and computer vision. Covers essential AI tools, algorithms, frameworks, and ethical considerations in AI development.</p>
-            </div>
-            <div class="mb-6">
-              <h3 class="font-semibold text-main mb-3" data-lang-en="Skills Acquired:" data-lang-ar="المهارات المكتسبة:">Skills Acquired:</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">Machine Learning</span>
-                <span class="skill-tag">Neural Networks</span>
-                <span class="skill-tag">NLP</span>
-                <span class="skill-tag">Computer Vision</span>
-                <span class="skill-tag">AI Ethics</span>
-                <span class="skill-tag">AI Frameworks</span>
-              </div>
-            </div>
-            <a href="https://www.dropbox.com/scl/fi/1w3mn1tswbomu66m25qpa/.jpg?rlkey=mnr8rnc81rtowwl6n1e6eugcp&st=a29unzj0&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 4: AI for Beginners -->
-    <div id="modal4" class="modal">
-      <div class="modal-content bg-main">
-        <span class="close" onclick="closeModal('modal4')">&times;</span>
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=1" alt="AI for Beginners Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
-          </div>
-          <div class="lg:w-1/2">
-            <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Artificial Intelligence for Beginners" data-lang-ar="الذكاء الاصطناعي للمبتدئين">الذكاء الاصطناعي للمبتدئين</h2>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Details:" data-lang-ar="تفاصيل الكورس:">Course Details:</h3>
-              <p class="text-secondary mb-2" data-lang-en="Platform: HP Life Global" data-lang-ar="المنصة: HP Life Global">Platform: HP Life Global</p>
-              <p class="text-secondary mb-2" data-lang-en="Year: 2024" data-lang-ar="السنة: 2024">Year: 2024</p>
-            </div>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Description:" data-lang-ar="وصف الكورس:">Course Description:</h3>
-              <p class="text-secondary text-sm leading-relaxed" data-lang-en="Develop a basic understanding of artificial intelligence and learn how it is changing the economy, education, industries, and daily life. This course provides an accessible introduction to AI concepts for beginners." data-lang-ar="طور فهماً أساسياً للذكاء الاصطناعي وتعرّف على كيفية تغييره للاقتصاد والتعليم والصناعات والحياة اليومية. تقدم هذه الدورة مقدمة سهلة المنال لمفاهيم الذكاء الاصطناعي للمبتدئين.">طور فهماً أساسياً للذكاء الاصطناعي وتعرّف على كيفية تغييره للاقتصاد والتعليم والصناعات والحياة اليومية.</p>
-            </div>
-            <div class="mb-6">
-              <h3 class="font-semibold text-main mb-3" data-lang-en="Skills Acquired:" data-lang-ar="المهارات المكتسبة:">Skills Acquired:</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">AI Concepts</span>
-                <span class="skill-tag">Industry Applications</span>
-                <span class="skill-tag">Economic Impact</span>
-                <span class="skill-tag">Future Trends</span>
-              </div>
-            </div>
-            <a href="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 5: Social Media Marketing -->
-    <div id="modal5" class="modal">
-      <div class="modal-content bg-main">
-        <span class="close" onclick="closeModal('modal5')">&times;</span>
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/f8nys55kchlyvbf2mphrt/.jpg?rlkey=f83o5tqpbtopyvir37ob62xpp&st=9xipj3io&dl=1" alt="Social Media Marketing Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
-          </div>
-          <div class="lg:w-1/2">
-            <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Social Media Marketing" data-lang-ar="التسويق عبر شبكات التواصل الاجتماعي">التسويق عبر شبكات التواصل الاجتماعي</h2>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Details:" data-lang-ar="تفاصيل الكورس:">Course Details:</h3>
-              <p class="text-secondary mb-2" data-lang-en="Platform: HP Life Global" data-lang-ar="المنصة: HP Life Global">Platform: HP Life Global</p>
-              <p class="text-secondary mb-2" data-lang-en="Year: 2024" data-lang-ar="السنة: 2024">Year: 2024</p>
-            </div>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Description:" data-lang-ar="وصف الكورس:">Course Description:</h3>
-              <p class="text-secondary text-sm leading-relaxed" data-lang-en="Learn about various social media marketing platforms and discover how to create social media advertisements that reach target customers effectively." data-lang-ar="تعرف على مجموعة من منصات التسويق عبر شبكات التواصل الاجتماعي وتعّرف على كيفية إنشاء إعلان عبر وسائل شبكات التواصل الاجتماعي من شأنه أن يصل إلى العملاء المستهدفين.">تعرف على مجموعة من منصات التسويق عبر شبكات التواصل الاجتماعي وتعّرف على كيفية إنشاء إعلان عبر وسائل شبكات التواصل الاجتماعي من شأنه أن يصل إلى العملاء المستهدفين.</p>
-            </div>
-            <div class="mb-6">
-              <h3 class="font-semibold text-main mb-3" data-lang-en="Skills Acquired:" data-lang-ar="المهارات المكتسبة:">Skills Acquired:</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">Social Media Strategy</span>
-                <span class="skill-tag">Content Creation</span>
-                <span class="skill-tag">Ad Targeting</span>
-                <span class="skill-tag">Campaign Management</span>
-                <span class="skill-tag">Analytics</span>
-              </div>
-            </div>
-            <a href="https://www.dropbox.com/scl/fi/f8nys55kchlyvbf2mphrt/.jpg?rlkey=f83o5tqpbtopyvir37ob62xpp&st=9xipj3io&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </div>
-    <!-- Modal 6: Online Selling -->
-    <div id="modal6" class="modal">
-      <div class="modal-content bg-main">
-        <span class="close" onclick="closeModal('modal6')">&times;</span>
-        <div class="flex flex-col lg:flex-row gap-8">
-          <div class="lg:w-1/2">
-            <img src="https://www.dropbox.com/scl/fi/0pinaqyw5c0h5qba9fl6f/.jpg?rlkey=j4gbydic6d7yggg3qb62e0wlh&st=mfir8d31&dl=1" alt="Online Selling Certificate" class="certificate-image w-full" onerror="this.src='https://via.placeholder.com/400x300/ecdacf/181411?text=Certificate+Image'">
-          </div>
-          <div class="lg:w-1/2">
-            <h2 class="text-2xl font-bold text-main mb-4" data-lang-en="Online Selling" data-lang-ar="البيع عبر الإنترنت">البيع عبر الإنترنت</h2>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Details:" data-lang-ar="تفاصيل الكورس:">Course Details:</h3>
-              <p class="text-secondary mb-2" data-lang-en="Platform: HP Life Global" data-lang-ar="المنصة: HP Life Global">Platform: HP Life Global</p>
-              <p class="text-secondary mb-2" data-lang-en="Year: 2024" data-lang-ar="السنة: 2024">Year: 2024</p>
-            </div>
-            <div class="mb-4">
-              <h3 class="font-semibold text-main mb-2" data-lang-en="Course Description:" data-lang-ar="وصف الكورس:">Course Description:</h3>
-              <p class="text-secondary text-sm leading-relaxed" data-lang-en="Discover how online selling can improve your business's ability to generate profit and learn how to sell more effectively to your online audience." data-lang-ar="اكتشف كيف يمكن للبيع عبر الإنترنت أن يحسّن من قدرة عملك على تحقيق ربح وتعرف على كيفية البيع بشكل أكثر فعالية لجمهورك عبر الإنترنت.">اكتشف كيف يمكن للبيع عبر الإنترنت أن يحسّن من قدرة عملك على تحقيق ربح وتعرف على كيفية البيع بشكل أكثر فعالية لجمهورك عبر الإنترنت.</p>
-            </div>
-            <div class="mb-6">
-              <h3 class="font-semibold text-main mb-3" data-lang-en="Skills Acquired:" data-lang-ar="المهارات المكتسبة:">Skills Acquired:</h3>
-              <div class="flex flex-wrap gap-2">
-                <span class="skill-tag">E-commerce Strategy</span>
-                <span class="skill-tag">Online Sales</span>
-                <span class="skill-tag">Digital Marketing</span>
-                <span class="skill-tag">Customer Engagement</span>
-                <span class="skill-tag">Conversion Optimization</span>
-              </div>
-            </div>
-            <a href="https://www.dropbox.com/scl/fi/0pinaqyw5c0h5qba9fl6f/.jpg?rlkey=j4gbydic6d7yggg3qb62e0wlh&st=mfir8d31&dl=1" target="_blank" class="btn-primary inline-block rounded-full px-6 py-3 font-bold transition" data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">View Certificate</a>
-          </div>
-        </div>
-      </div>
-    </div>
+
     <script>
-      // Theme and Language handling (same as other pages)
+      // Theme and Language handling
       document.addEventListener('DOMContentLoaded', () => {
         const html = document.documentElement;
         const darkModeToggle = document.getElementById('darkModeToggle');
@@ -576,17 +376,6 @@
           html.classList.toggle('dark', theme === 'dark');
           document.getElementById('sunIcon').classList.toggle('hidden', theme === 'dark');
           document.getElementById('moonIcon').classList.toggle('hidden', theme !== 'dark');
-          // Update CSS custom properties for modal
-          const root = document.documentElement;
-          if (theme === 'dark') {
-            root.style.setProperty('--bg-main', '#181411');
-            root.style.setProperty('--text-main', '#fbfaf9');
-            root.style.setProperty('--text-secondary', '#a8a29e');
-          } else {
-            root.style.setProperty('--bg-main', '#fbfaf9');
-            root.style.setProperty('--text-main', '#181411');
-            root.style.setProperty('--text-secondary', '#866e5f');
-          }
         };
         
         darkModeToggle.addEventListener('click', () => {
@@ -657,34 +446,6 @@
         document.querySelectorAll('#mobileMenu a').forEach(link => {
           link.addEventListener('click', closeMobileMenuFunc);
         });
-      });
-      // Modal functions
-      function openModal(modalId) {
-        document.getElementById(modalId).style.display = 'block';
-        document.body.style.overflow = 'hidden';
-      }
-      function closeModal(modalId) {
-        document.getElementById(modalId).style.display = 'none';
-        document.body.style.overflow = 'auto';
-      }
-      // Close modal when clicking outside
-      window.onclick = function(event) {
-        if (event.target.classList.contains('modal')) {
-          event.target.style.display = 'none';
-          document.body.style.overflow = 'auto';
-        }
-      }
-      // Close modal with Escape key
-      document.addEventListener('keydown', function(event) {
-        if (event.key === 'Escape') {
-          const modals = document.querySelectorAll('.modal');
-          modals.forEach(modal => {
-            if (modal.style.display === 'block') {
-              modal.style.display = 'none';
-              document.body.style.overflow = 'auto';
-            }
-          });
-        }
       });
     </script>
   </body>
