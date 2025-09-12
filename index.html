@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mohamed Khairy - Digital Designer & Web Developer</title>
     <meta name="description" content="Portfolio of Mohamed Khairy, a freelance creative designer specializing in posters, corporate ads, branding, and high-impact landing pages." />
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='0.9em' font-size='90'%3E🚀%3C/text%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.gstatic.com/" crossorigin="" />
     <link rel="stylesheet" as="style" onload="this.rel='stylesheet'" href="https://fonts.googleapis.com/css2?display=swap&amp;family=Noto+Sans:wght@400;500;700;900" />
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
@@ -335,7 +336,7 @@
         languageToggle.addEventListener('click', () => {
           const newLang = html.lang === 'en' ? 'ar' : 'en';
           localStorage.setItem('language', newLang);
-          applyLanguage(newLang);
+          applyLanguageEnhanced(newLang);
         });
         const observer = new IntersectionObserver((entries) => {
           entries.forEach(entry => {
@@ -350,7 +351,7 @@
         const savedTheme = localStorage.getItem('theme') || 'light';
         applyTheme(savedTheme);
         const savedLang = localStorage.getItem('language') || 'en';
-        applyLanguage(savedLang);
+        // Don't apply here since it will be applied in the enhanced function below
         
         // Mobile menu functionality
         const mobileMenuToggle = document.getElementById('mobileMenuToggle');
@@ -404,12 +405,17 @@
           }
         };
         
-        // Listen for language changes to sync
+        // Store original apply function and enhance it
         const originalApplyLanguage = applyLanguage;
-        applyLanguage = (lang) => {
+        
+        // Create enhanced language function that also syncs mobile buttons
+        const applyLanguageEnhanced = (lang) => {
           originalApplyLanguage(lang);
           syncMobileButtons();
         };
+        
+        // Update the saved language to use enhanced function
+        applyLanguageEnhanced(localStorage.getItem('language') || 'en');
         
         syncMobileButtons();
       });

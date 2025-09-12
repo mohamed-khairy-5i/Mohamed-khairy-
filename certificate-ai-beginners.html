@@ -22,6 +22,47 @@
       .animate-on-scroll { opacity: 0; transform: translateY(30px); transition: opacity 0.6s ease-out, transform 0.6s ease-out; }
       .animate-on-scroll.is-visible { opacity: 1; transform: translateY(0); }
       .certificate-glow { box-shadow: 0 0 30px rgba(99, 102, 241, 0.2); }
+      
+      /* Mobile Menu Styles */
+      .mobile-menu {
+        transform: translateX(-100%);
+        transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        backdrop-filter: blur(10px);
+      }
+      .mobile-menu.open {
+        transform: translateX(0);
+      }
+      .hamburger {
+        cursor: pointer;
+        padding: 8px;
+        transition: all 0.2s ease;
+      }
+      .hamburger:hover {
+        background-color: rgba(0, 0, 0, 0.05);
+        border-radius: 8px;
+      }
+      .dark .hamburger:hover {
+        background-color: rgba(255, 255, 255, 0.05);
+      }
+      .hamburger span {
+        display: block;
+        width: 22px;
+        height: 2px;
+        background: currentColor;
+        margin: 5px 0;
+        transition: 0.3s ease;
+        transform-origin: center;
+      }
+      .hamburger.active span:nth-child(1) {
+        transform: rotate(-45deg) translate(-5px, 6px);
+      }
+      .hamburger.active span:nth-child(2) {
+        opacity: 0;
+        transform: translateX(10px);
+      }
+      .hamburger.active span:nth-child(3) {
+        transform: rotate(45deg) translate(-5px, -6px);
+      }
     </style>
   </head>
   <body class="bg-main text-main transition-colors duration-300">
@@ -39,10 +80,65 @@
               <p class="text-xs text-secondary leading-none" data-lang-en="Web Developer & Designer" data-lang-ar="مطور ويب ومصمم">Web Developer & Designer</p>
             </div>
         </a>
-        <nav class="flex items-center gap-6">
+        <nav class="hidden md:flex items-center gap-6">
           <a class="text-secondary text-sm font-medium hover:text-main transition-colors" href="certificates.html" data-lang-en="← Back to Certificates" data-lang-ar="← العودة للشهادات">← Back to Certificates</a>
         </nav>
+        
+        <!-- Mobile Hamburger Menu -->
+        <div class="md:hidden">
+          <div id="mobileMenuToggle" class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+          </div>
+        </div>
       </header>
+
+      <!-- Mobile Menu Overlay -->
+      <div id="mobileMenuOverlay" class="fixed inset-0 bg-black bg-opacity-50 z-40 hidden md:hidden"></div>
+
+      <!-- Mobile Menu -->
+      <div id="mobileMenu" class="mobile-menu fixed top-0 left-0 h-full w-80 bg-main z-50 shadow-2xl md:hidden">
+        <div class="flex flex-col h-full">
+          <!-- Mobile Menu Header -->
+          <div class="flex items-center justify-between p-6 border-b border-subtle">
+            <div class="flex items-center gap-3">
+              <div class="flex items-center justify-center w-8 h-8 bg-gradient-to-br from-indigo-500 to-purple-600 rounded-lg">
+                <svg class="w-5 h-5 text-white" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0L19.2 12l-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/>
+                </svg>
+              </div>
+              <span class="text-main font-bold text-lg">Mohamed Khairy</span>
+            </div>
+            <button id="closeMobileMenu" class="p-2 hover:bg-subtle rounded-lg transition-colors">
+              <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+              </svg>
+            </button>
+          </div>
+
+          <!-- Mobile Navigation Links -->
+          <nav class="flex-1 px-6 py-4">
+            <ul class="space-y-2">
+              <li>
+                <a href="index.html" class="mobile-nav-link block px-4 py-3 text-main font-medium transition-all duration-200" data-lang-en="Home" data-lang-ar="الرئيسية">Home</a>
+              </li>
+              <li>
+                <a href="about.html" class="mobile-nav-link block px-4 py-3 text-secondary hover:text-main font-medium transition-all duration-200" data-lang-en="About" data-lang-ar="عنّي">About</a>
+              </li>
+              <li>
+                <a href="projects.html" class="mobile-nav-link block px-4 py-3 text-secondary hover:text-main font-medium transition-all duration-200" data-lang-en="Projects" data-lang-ar="المشاريع">Projects</a>
+              </li>
+              <li>
+                <a href="certificates.html" class="mobile-nav-link block px-4 py-3 text-main font-semibold bg-subtle rounded-lg transition-all duration-200" data-lang-en="Certificates" data-lang-ar="الشهادات">Certificates</a>
+              </li>
+              <li>
+                <a href="contact.html" class="mobile-nav-link block px-4 py-3 text-secondary hover:text-main font-medium transition-all duration-200" data-lang-en="Contact" data-lang-ar="تواصل">Contact</a>
+              </li>
+            </ul>
+          </nav>
+        </div>
+      </div>
 
       <!-- Certificate Landing Page -->
       <main class="flex-1 py-12 px-4 md:px-10">
@@ -73,7 +169,7 @@
             <div class="animate-on-scroll">
               <div class="bg-gradient-to-br from-indigo-50 to-purple-50 dark:from-indigo-900/20 dark:to-purple-900/20 p-6 rounded-2xl certificate-glow">
                 <img 
-                  src="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=1" 
+                  src="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=0&raw=1" 
                   alt="AI for Beginners Certificate" 
                   class="w-full rounded-xl shadow-xl hover:shadow-2xl transition-shadow duration-300"
                 />
@@ -125,7 +221,7 @@
 
                 <!-- Action Buttons -->
                 <div class="flex flex-col sm:flex-row gap-4 mt-8">
-                  <a href="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=1" target="_blank" class="btn-primary text-center rounded-xl px-6 py-3 font-bold transition-all duration-200 hover:scale-105">
+                  <a href="https://www.dropbox.com/scl/fi/28ky5xe15mgvumtzuqf22/.jpg?rlkey=nmfshr90y5zxbf171jqtuad6t&st=0zg7th48&dl=0&raw=1" target="_blank" class="btn-primary text-center rounded-xl px-6 py-3 font-bold transition-all duration-200 hover:scale-105">
                     <span data-lang-en="View Certificate" data-lang-ar="عرض الشهادة">عرض الشهادة</span>
                   </a>
                   <a href="certificates.html" class="bg-main border-2 border-subtle text-main text-center rounded-xl px-6 py-3 font-bold transition-all duration-200 hover:bg-subtle">
@@ -258,6 +354,42 @@
       }, { threshold: 0.1 });
       
       document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+      
+      // Mobile menu functionality
+      const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+      const closeMobileMenu = document.getElementById('closeMobileMenu');
+      const mobileMenu = document.getElementById('mobileMenu');
+      const mobileMenuOverlay = document.getElementById('mobileMenuOverlay');
+      
+      const openMobileMenu = () => {
+        mobileMenu.classList.add('open');
+        mobileMenuOverlay.classList.remove('hidden');
+        mobileMenuToggle.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      };
+      
+      const closeMobileMenuFunc = () => {
+        mobileMenu.classList.remove('open');
+        mobileMenuOverlay.classList.add('hidden');
+        mobileMenuToggle.classList.remove('active');
+        document.body.style.overflow = 'auto';
+      };
+      
+      mobileMenuToggle?.addEventListener('click', openMobileMenu);
+      closeMobileMenu?.addEventListener('click', closeMobileMenuFunc);
+      mobileMenuOverlay?.addEventListener('click', closeMobileMenuFunc);
+      
+      // Close mobile menu when clicking on a link
+      document.querySelectorAll('#mobileMenu a').forEach(link => {
+        link.addEventListener('click', closeMobileMenuFunc);
+      });
+      
+      // Close mobile menu with Escape key
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+          closeMobileMenuFunc();
+        }
+      });
     </script>
   </body>
 </html>
